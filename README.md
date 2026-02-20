@@ -19,13 +19,3 @@
 4. [cite_start]**Dockerization :** Création d'une image Docker de l'application[cite: 43, 49].
 5. [cite_start]**Push :** Envoi de l'image vers Docker Hub[cite: 18].
 6. [cite_start]**Déploiement :** Livraison continue avec Docker (Spring et MySQL)[cite: 43].
-
-## 📋 Conventions de Nommage
-* [cite_start]**Dépôt Git :** `classe_nomEtudiant`[cite: 46].
-* [cite_start]**Image Docker :** `nomprenom_classe_nomProjet`[cite: 49].
-
-## 📊 Monitoring (Continous Monitoring)
-[cite_start]Le projet utilise Grafana et Prometheus pour surveiller l'état des conteneurs en temps réel[cite: 44].
-
----
-[cite_start]*Travail individuel comptant pour 60% du Contrôle Continu[cite: 6].*
