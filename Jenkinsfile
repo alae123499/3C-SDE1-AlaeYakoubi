@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+	maven 'M3'
+    }
     environment {
         SONAR_HOST = "http://localhost:9000"
         SONAR_TOKEN = "sqa_830b7635e9726e44390925530889470dd1417b38"
