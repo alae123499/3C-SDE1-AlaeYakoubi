@@ -2,14 +2,9 @@ pipeline {
     agent any
     environment {
         SONAR_HOST = "http://localhost:9000"
-        SONAR_TOKEN = "sqa_803defb1b5975175dd6bb36577da2155fe29e15e"
+        SONAR_TOKEN = "sqa_830b7635e9726e44390925530889470dd1417b38"
     }
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/alae123499/3C-SDE1-AlaeYakoubi.git'
-            }
-        }
         stage('Build') {
             steps {
                 sh 'mvn clean package -Dmaven.test.skip=true'
@@ -22,7 +17,7 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh 'docker build -t alae123499_3c_sde1_springapp .'
+                sh 'docker build -t alae_yakoubi_3c_sde1_springapp .'
             }
         }
     }
