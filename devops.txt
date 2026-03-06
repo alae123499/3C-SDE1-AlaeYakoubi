@@ -1,0 +1,10 @@
+docker run -d --name sonarqube -p 9000:9000 sonarqube:lts
+
+docker start jankins
+docker start sonarqube
+docker start grafana
+
+docker run -d -p 3000:3000 grafana/grafana
+
+
+docker images | grep alae_yakoubi
