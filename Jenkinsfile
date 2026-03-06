@@ -5,7 +5,7 @@ pipeline {
     }
     environment {
         SONAR_HOST = "http://localhost:9000"
-        SONAR_TOKEN = "sqa_830b7635e9726e44390925530889470dd1417b38"
+        SONAR_TOKEN = "sqa_7e5c1aaf8332dccd2d14eb7c339924e879b5c0cc"
     }
     stages {
         stage('Checkout') {
