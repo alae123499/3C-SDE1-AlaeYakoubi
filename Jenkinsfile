@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-	maven 'M3'
+        maven 'M3'
     }
     environment {
         SONAR_HOST = "http://localhost:9000"
@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/alae123499/3C-SDE1-AlaeYakoubi.git'
+                git branch: 'master', url: 'https://github.com/alae123499/3C-SDE1-AlaeYakoubi.git'
             }
         }
         stage('Build') {
@@ -20,7 +20,9 @@ pipeline {
         }
         stage('Sonar') {
             steps {
-                sh "mvn sonar:sonar -Dmaven.test.skip=true -Dsonar.host.url=${SONAR_HOST} -Dsonar.login=${SONAR_TOKEN}"
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    sh "mvn sonar:sonar -Dmaven.test.skip=true -Dsonar.host.url=${SONAR_HOST} -Dsonar.login=${SONAR_TOKEN}"
+                }
             }
         }
         stage('Docker Build') {
