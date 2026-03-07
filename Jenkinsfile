@@ -4,8 +4,8 @@ pipeline {
         maven 'M3'
     }
     environment {
-        SONAR_HOST = "http://localhost:9000"
-        SONAR_TOKEN = "sqa_7e5c1aaf8332dccd2d14eb7c339924e879b5c0cc"
+        SONAR_HOST = "http://172.20.17.143:9000"
+        SONAR_TOKEN = "sqa_a9fc1bfe288514ffb91bc72dc2001cd079722bd3"
     }
     stages {
         stage('Checkout') {
@@ -20,9 +20,7 @@ pipeline {
         }
         stage('Sonar') {
             steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     sh "mvn sonar:sonar -Dmaven.test.skip=true -Dsonar.host.url=${SONAR_HOST} -Dsonar.login=${SONAR_TOKEN}"
-                }
             }
         }
         stage('Docker Build') {
